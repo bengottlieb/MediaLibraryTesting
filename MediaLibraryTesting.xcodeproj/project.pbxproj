@@ -7,18 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5B2F9CE271D7C520056FDEA /* MediaItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B2F9CD271D7C520056FDEA /* MediaItemRow.swift */; };
+		B5B2F9D0271D81420056FDEA /* MediaItemDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B2F9CF271D81420056FDEA /* MediaItemDetails.swift */; };
+		B5B2F9D2271D822B0056FDEA /* MediaItemThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B2F9D1271D822B0056FDEA /* MediaItemThumbnail.swift */; };
 		B5EE6645271839FD0035BC47 /* MediaLibraryTestingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EE6644271839FD0035BC47 /* MediaLibraryTestingApp.swift */; };
 		B5EE6647271839FD0035BC47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EE6646271839FD0035BC47 /* ContentView.swift */; };
 		B5EE6649271839FE0035BC47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EE6648271839FE0035BC47 /* Assets.xcassets */; };
 		B5EE664C271839FE0035BC47 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EE664B271839FE0035BC47 /* Preview Assets.xcassets */; };
+		B5EE665327183A0E0035BC47 /* MediaLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EE665227183A0E0035BC47 /* MediaLibrary.swift */; };
+		B5EE6656271840530035BC47 /* Suite in Frameworks */ = {isa = PBXBuildFile; productRef = B5EE6655271840530035BC47 /* Suite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5B2F9CD271D7C520056FDEA /* MediaItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItemRow.swift; sourceTree = "<group>"; };
+		B5B2F9CF271D81420056FDEA /* MediaItemDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItemDetails.swift; sourceTree = "<group>"; };
+		B5B2F9D1271D822B0056FDEA /* MediaItemThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItemThumbnail.swift; sourceTree = "<group>"; };
 		B5EE6641271839FD0035BC47 /* MediaLibraryTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaLibraryTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EE6644271839FD0035BC47 /* MediaLibraryTestingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLibraryTestingApp.swift; sourceTree = "<group>"; };
 		B5EE6646271839FD0035BC47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B5EE6648271839FE0035BC47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5EE664B271839FE0035BC47 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B5EE665227183A0E0035BC47 /* MediaLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLibrary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5EE6656271840530035BC47 /* Suite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +63,10 @@
 			children = (
 				B5EE6644271839FD0035BC47 /* MediaLibraryTestingApp.swift */,
 				B5EE6646271839FD0035BC47 /* ContentView.swift */,
+				B5B2F9CD271D7C520056FDEA /* MediaItemRow.swift */,
+				B5B2F9D1271D822B0056FDEA /* MediaItemThumbnail.swift */,
+				B5B2F9CF271D81420056FDEA /* MediaItemDetails.swift */,
+				B5EE665227183A0E0035BC47 /* MediaLibrary.swift */,
 				B5EE6648271839FE0035BC47 /* Assets.xcassets */,
 				B5EE664A271839FE0035BC47 /* Preview Content */,
 			);
@@ -83,6 +97,9 @@
 			dependencies = (
 			);
 			name = MediaLibraryTesting;
+			packageProductDependencies = (
+				B5EE6655271840530035BC47 /* Suite */,
+			);
 			productName = MediaLibraryTesting;
 			productReference = B5EE6641271839FD0035BC47 /* MediaLibraryTesting.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +128,9 @@
 				Base,
 			);
 			mainGroup = B5EE6638271839FD0035BC47;
+			packageReferences = (
+				B5EE6654271840530035BC47 /* XCRemoteSwiftPackageReference "suite" */,
+			);
 			productRefGroup = B5EE6642271839FD0035BC47 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +157,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B2F9D2271D822B0056FDEA /* MediaItemThumbnail.swift in Sources */,
+				B5B2F9CE271D7C520056FDEA /* MediaItemRow.swift in Sources */,
 				B5EE6647271839FD0035BC47 /* ContentView.swift in Sources */,
+				B5B2F9D0271D81420056FDEA /* MediaItemDetails.swift in Sources */,
 				B5EE6645271839FD0035BC47 /* MediaLibraryTestingApp.swift in Sources */,
+				B5EE665327183A0E0035BC47 /* MediaLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,12 +296,13 @@
 				DEVELOPMENT_TEAM = YY6CWUX533;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Import music tracks";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,12 +327,13 @@
 				DEVELOPMENT_TEAM = YY6CWUX533;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Import music tracks";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,6 +369,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B5EE6654271840530035BC47 /* XCRemoteSwiftPackageReference "suite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bengottlieb/suite";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B5EE6655271840530035BC47 /* Suite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5EE6654271840530035BC47 /* XCRemoteSwiftPackageReference "suite" */;
+			productName = Suite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5EE6639271839FD0035BC47 /* Project object */;
 }
