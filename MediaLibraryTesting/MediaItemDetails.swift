@@ -18,13 +18,16 @@ struct MediaItemDetails: View {
 			.aspectRatio(contentMode: .fit)
 			
 			Button("Copy \(mediaItem.title ?? "This Item")") {
-				mediaItem.export { result in
-					switch result {
-					case .success(let url):
-						print("Exported to \(url)")
-						
-					case .failure(let error):
-						print("Failed to export: \(error)")
+				Task() {
+					do {
+						if await !mediaItem.validateLocality() {
+							print("Non-local item")
+							return
+						}
+						let url = try await mediaItem.export()
+						print(url)
+					} catch {
+						print("Error while exporting: \(error)")
 					}
 				}
 			}
@@ -36,15 +39,33 @@ struct MediaItemDetails: View {
 
 extension MPMediaItem {
 	enum ExportError: Error { case noAssetURL, unableToCreateExporter, unknownError }
-	func export(completion: @escaping (Result<URL, Error>) -> ()) {
+	
+	func validateLocality() async -> Bool {
+		if self.assetURL != nil { return true }
+		if self.hasProtectedAsset {
+			print("Protected item")
+			return false
+		}
+		
+		let player = MPMusicPlayerController.systemMusicPlayer
+		player.setQueue(with: MPMediaItemCollection(items: [self]))
+		
+		do {
+			try await player.prepareToPlay()
+		} catch {
+			print("Failed to prepare to play: \(error)")
+			return false
+		}
+		return self.assetURL != nil
+	}
+	
+	func export() async throws -> URL {
 		guard let assetURL = self.assetURL else {
-			completion(.failure(ExportError.noAssetURL))
-			return
+			throw ExportError.noAssetURL
 		}
 		let asset = AVURLAsset(url: assetURL)
 		guard let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) else {
-			completion(.failure(ExportError.unableToCreateExporter))
-			return
+			throw ExportError.unableToCreateExporter
 		}
 		
 		let fileURL = URL.documents
@@ -52,14 +73,13 @@ extension MPMediaItem {
 			.appendingPathExtension("m4a")
 		
 		exporter.outputURL = fileURL
-		exporter.outputFileType = .mp4
+		exporter.outputFileType = .m4a
 		
-		exporter.exportAsynchronously {
-			if exporter.status == .completed {
-				completion(.success(fileURL))
-			} else {
-				completion(.failure(exporter.error ?? ExportError.unknownError))
-			}
+		await exporter.export()
+		if exporter.status == .completed {
+			return fileURL
+		} else {
+			throw exporter.error ?? ExportError.unknownError
 		}
 	}
 	
